@@ -35,6 +35,21 @@ function pascal(row, col) {
   //
   // pascal(4, 2)
   // // → 6
+  if(row < col){
+        return;
+    }
+    if(row === 0 || col === 0){
+        return 1
+    }else
+    if(row === col){
+        return 1;
+    } else
+    if(row === 1){
+        return 1;
+    } else {
+        return pascal(row - 1,col - 1) + pascal(row-1, col);
+    }
+  
 }
 
 function sqrt(x) {
