@@ -52,26 +52,59 @@ function pascal(row, col) {
   
 }
 
+//function sqrt(x) {
+//  // Square roots by Newton's method http://en.wikipedia.org/wiki/Newton%27s_method
+//  // Also you can look at the problem description in SICP[1.1.7] http://newstar.rinet.ru/~goga/sicp/sicp.pdf
+//  // You should write a function that takes a number and computes square root
+//  // You can build solution based on functions structure defined below or you can make up your own
+//}
+//
+//function sqrtIter(guess, x) {
+//}
+//
+//function improve(guess, x) {
+//}
+//
+//function average(x, y) {
+//}
+//
+//function isGoodEnough(guess, x) {
+//}
+//
+//function square(x) {
+//}
+
 function sqrt(x) {
-  // Square roots by Newton's method http://en.wikipedia.org/wiki/Newton%27s_method
-  // Also you can look at the problem description in SICP[1.1.7] http://newstar.rinet.ru/~goga/sicp/sicp.pdf
-  // You should write a function that takes a number and computes square root
-  // You can build solution based on functions structure defined below or you can make up your own
+    return sqrtIter(1, x);
 }
 
 function sqrtIter(guess, x) {
+//    debugger
+    if(isGoodEnough(guess, x)){
+        return guess;
+    }else{
+        return sqrtIter(improve(guess,x),x);
+    }
 }
 
 function improve(guess, x) {
+    return average(guess, x/guess);
 }
 
 function average(x, y) {
+    return (x+y)/2;
 }
 
 function isGoodEnough(guess, x) {
+    if(Math.abs(square(guess) - x) <  Math.pow(0.001, 22)){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function square(x) {
+    return x * x;
 }
 
 module.exports.isEven = isEven;
