@@ -9,19 +9,33 @@ function isEven(number) {
   // For any other number N, its evenness is the same as N - 2.
   // Define a recursive function isEven corresponding to this description. The function should accept a number parameter and return a Boolean.
   // Test it on 50 and 75. See how it behaves on -1. Why? Can you think of a way to fix this?
-	if(number < 0 || number === 1){
-        number = number*(-1);
+//	if(number < 0 || number === 1){
+//        number = number*(-1);
+//    }
+//    var temp = number-2;
+//    if(temp !== 0 && temp !==1){
+//        return isEven(temp);
+//    }else{
+//        if(temp === 0){
+//            return true;
+//        }
+//        if(temp === 1){
+//            return false;
+//        }
+//    }
+
+    if(number === -1 || number === 1){
+        return false;
     }
-    var temp = number-2;
-    if(temp !== 0 && temp !==1){
-        return isEven(temp);
-    }else{
-        if(temp === 0){
-            return true;
-        }
-        if(temp === 1){
-            return false;
-        }
+    if(number-2 < 0) {
+        return isEven((number-2) * (-1));
+    }else if(number-2 > 0){
+        return isEven(number-2);
+    }
+    else if(number-2 === 0){
+        return true;
+    }else {
+        return false;
     }
 }
 
@@ -35,21 +49,21 @@ function pascal(row, col) {
   //
   // pascal(4, 2)
   // // → 6
-  if(row < col){
+    if(row < col){
         return;
     }
+
     if(row === 0 || col === 0){
         return 1
-    }else
-    if(row === col){
+    }
+    else if(row === col){
         return 1;
-    } else
-    if(row === 1){
+    } else if(row === 1){
         return 1;
     } else {
         return pascal(row - 1,col - 1) + pascal(row-1, col);
     }
-  
+
 }
 
 //function sqrt(x) {
